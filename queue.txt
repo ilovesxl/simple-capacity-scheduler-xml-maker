@@ -1,0 +1,20 @@
+---CONFIG
+maximum-applications=10000
+maximum-am-resource-percent=0.5
+node-locality-delay=100
+queue-mappings-override.enable=false
+per-node-heartbeat.maximum-offswitch-assignments=2
+
+
+---PARTITION
+DEFAULT,zues
+
+---QUEUE
+root                            1       zues    zues    *       *       RUNNING 100|100 100|100
+root.default                    1       zues    zues    *       *       RUNNING 10|100  10|100
+root.saas                       1       zues    zues    *       *       RUNNING 90|100  90|100
+root.saas.prds                  1       zues    zues    *       *       RUNNING 100|100 100|100
+root.saas.prds.has              1       zues    zues    *       *       RUNNING 100|100 100|100
+root.saas.prds.has.routine      1       zues    zues    *       *       RUNNING 40|100  40|100
+root.saas.prds.has.hourly       1       zues    zues    *       *       RUNNING 40|100  40|100
+root.saas.prds.has.streaming    1       zues    zues    *       *       RUNNING 20|100  20|100
